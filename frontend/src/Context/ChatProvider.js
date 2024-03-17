@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-
 const ChatContext = createContext();
 
 const ChatProvider = ({ children }) => {
@@ -15,8 +14,9 @@ const ChatProvider = ({ children }) => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     setUser(userInfo);
 
-    if (!userInfo) history.push("/");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if (!userInfo) {
+      history.push("/");
+    }
   }, [history]);
 
   return (
